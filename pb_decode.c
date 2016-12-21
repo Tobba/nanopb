@@ -1128,6 +1128,18 @@ bool pb_decode_svarint(pb_istream_t *stream, int64_t *dest)
     return true;
 }
 
+bool pb_decode_fixed16(pb_istream_t *stream, void *dest)
+{
+    pb_byte_t bytes[2];
+
+    if (!pb_read(stream, bytes, 2))
+        return false;
+
+    *(uint16_t*)dest = ((uint16_t)bytes[0] << 0) |
+                       ((uint16_t)bytes[1] << 8);
+    return true;
+}
+
 bool pb_decode_fixed32(pb_istream_t *stream, void *dest)
 {
     pb_byte_t bytes[4];

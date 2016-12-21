@@ -134,6 +134,8 @@ bool pb_decode_varint32(pb_istream_t *stream, uint32_t *dest);
  * and sint64. */
 bool pb_decode_svarint(pb_istream_t *stream, int64_t *dest);
 
+bool pb_decode_fixed16(pb_istream_t *stream, void *dest);
+
 /* Decode a fixed32, sfixed32 or float value. You need to pass a pointer to
  * a 4-byte wide C variable. */
 bool pb_decode_fixed32(pb_istream_t *stream, void *dest);
